@@ -37,11 +37,21 @@ public class UserRegistrationRegex {
             System.out.println(email + " : is a invalid email ");
         }
     }
+    public static void mobileNumber(String mobile) {
+        String regex = "^[0-9]{2}[0-9]{10}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher match = p.matcher(mobile);
+        if (match.matches()) {
+            System.out.println(mobile + " : is a valid Mobile Number");
+        } else {
+            System.out.println(mobile + " : is a invalid Mobile Number ");
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome in User registration program using Regex");
         Scanner sc = new Scanner(System.in);
-        System.out.println("What do want enter \n1. First Name \n2. Last Name \n3. E-mail");
+        System.out.println("What do want enter \n1. First Name \n2. Last Name \n3. E-mail \n4. Mobile number");
         int option = sc.nextInt();
         switch(option) {
 
@@ -60,6 +70,11 @@ public class UserRegistrationRegex {
                 System.out.println("Enter e-mail");
                 String email = sc.next();
                 email(email);
+                break;
+            case 4:
+                System.out.println("Enter Mobile Number");
+                String mobile = sc.next();
+                mobileNumber(mobile);
                 break;
         }
     }
