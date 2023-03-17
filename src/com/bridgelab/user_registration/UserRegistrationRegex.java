@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-// UC6-Method for validation of Password with rule -2.
+// UC7-Method for validation of Password with rule -3.
 public class UserRegistrationRegex {
 
     public static void firstName(String firstName) {
@@ -52,7 +52,7 @@ public class UserRegistrationRegex {
     }
 
     public static void password(String password) {
-        String regex = "(?=.*[A-Z])[A-za-z0-9@_#$%!]{8,}";
+        String regex = "(?=.*[A-Z])(?=.*[0-9])[A-za-z0-9@_#$%!]{8,}";
         Pattern p = Pattern.compile(regex);
         Matcher match = p.matcher(password);
         if (match.matches()) {
