@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-// UC2-Method for validation of last name.
+// UC3-Method for validation of Email.
 public class UserRegistrationRegex {
 
     public static void firstName(String firstName) {
@@ -27,11 +27,21 @@ public class UserRegistrationRegex {
             System.out.println(lastName + " : is a invalid last name ");
         }
     }
+    public static void email(String email) {
+        String regex = "^[a-z]{3,}[.+-_]*[a-z0-9]*{3,}[@][a-z0-9]{1,}[.][a-z]{2,}[.]*[a-z]*{2,}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher match = p.matcher(email);
+        if (match.matches()) {
+            System.out.println(email + " : is a valid email ");
+        } else {
+            System.out.println(email + " : is a invalid email ");
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome in User registration program using Regex");
         Scanner sc = new Scanner(System.in);
-        System.out.println("What do want enter \n1. First Name \n2. Last Name");
+        System.out.println("What do want enter \n1. First Name \n2. Last Name \n3. E-mail");
         int option = sc.nextInt();
         switch(option) {
 
@@ -45,6 +55,11 @@ public class UserRegistrationRegex {
                 System.out.println("Enter last Name");
                 String lastName = sc.next();
                 lastName(lastName);
+                break;
+            case 3:
+                System.out.println("Enter e-mail");
+                String email = sc.next();
+                email(email);
                 break;
         }
     }
